@@ -29,12 +29,14 @@ def create_folder():
             elif f_extension == ".xml":
                 folder_name = "XML File"
             else:
-                continue
+                None
 
-            os.makedirs(f"{PATH}/{folder_name}", exist_ok=True)
-            source = f"{PATH}/{file}"   
+            folder_path = os.path.join(PATH,folder_name)
 
-            destination = f"{PATH}/{folder_name}/{file}"
+            os.makedirs(folder_path, exist_ok=True)
+            source = os.path.join(PATH, file)
+
+            destination = os.path.join(folder_path, file)
 
             shutil.move(source, destination)
 
