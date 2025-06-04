@@ -2,7 +2,10 @@ import os
 import shutil
 import json
 
-PATH = r"C:\Users\hayk.hambardzumyan\Desktop\python\task_organizer\files"
+dirname = os.path.dirname(__file__)
+
+PATH = os.path.join(dirname, "files")
+
 
 files_lst = os.listdir(PATH)
 
@@ -26,7 +29,7 @@ def create_folder():
             elif f_extension == ".xml":
                 folder_name = "XML File"
             else:
-                None
+                continue
 
             os.makedirs(f"{PATH}/{folder_name}", exist_ok=True)
             source = f"{PATH}/{file}"   
